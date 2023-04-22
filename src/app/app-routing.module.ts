@@ -36,8 +36,8 @@ const routes: Routes = [
   },
   { path: 'cart/checkout', component: CheckoutComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'account', component: AccountComponent }
+  { path: 'admin', component: AdminComponent, ...canActivate(redirectToLogin) },
+  { path: 'account', component: AccountComponent, ...canActivate(redirectToLogin) }
 
 ];
 
