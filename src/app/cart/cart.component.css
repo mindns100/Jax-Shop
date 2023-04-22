@@ -1,0 +1,33 @@
+
+
+.list-group{
+  align-items: center;
+  text-align: center;
+  padding-left: 0;
+  width: 100%;
+}
+
+.list-group-item {
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: black 1px solid;
+  margin-bottom: 0;
+
+}
+
+.cart-item{
+  border: 1px black solid;
+  border-radius: 20px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto; /* center the container horizontally */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.plus{
+  align-items: center;
+  float: right;
+}
+

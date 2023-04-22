@@ -1,0 +1,44 @@
+
+<div class="form-container mat-elevation-z5 margin-top">
+  <div class="divsign">
+  <h1>Regisztráció</h1>
+  <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+    <mat-form-field>
+      <input matInput placeholder="Név" formControlName="name"/>
+      <mat-error *ngIf="name?.errors?.['required']">
+        A név nem hiányozhat!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email"/>
+      <mat-error *ngIf="email?.errors?.['required']">
+        Az email cím nem hiányozhat!
+      </mat-error>
+      <mat-error *ngIf="email?.errors?.['email']">
+        Az email cím forma nem korrekt!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Jelszó" formControlName="password" type="password"/>
+      <mat-error *ngIf="password?.errors?.['required']">
+        A jelszó nem hiányozhat!
+      </mat-error>
+    </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Jelszó megint" formControlName="confirmPassword" type="password"/>
+        <mat-error *ngIf="confirmPassword?.errors?.['required']">
+          A jelszó megismétlése nem hiányozhat!
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+        A megadott jelszavak meg kell hogy egyezzenek!
+      </mat-error>
+    <div class="center margin-top">
+      <button mat-raised-button color="primary" type="submit" routerLink="login">Regisztráció</button>
+
+    </div>
+    <br>
+    <span class="center margin-top text-center" >Már van fiókod? --> <a routerLink="/login"> Belépés</a></span>
+  </form>
+</div>
+</div>

@@ -1,0 +1,133 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.form-container{
+  display: block;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+
+
+  background: #e8e8e8;
+  padding: 48px;
+  border-radius: 16px;
+  border: black solid 1px;
+
+}
+.form-container mat-form-field{
+  width: 100%;
+}
+.btn btn-primary btn-block btn-sm{
+  padding-left: 10px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+.margin-top{
+  margin-top: 16px;
+}
+text-center {
+  text-align: center;
+}
+.profil{
+  font-size: 18px;
+  text-align: center;
+  float: right;
+  justify-content: center;
+}
+h1{
+  padding-top: 20px;
+}
+.jax{
+  text-decoration: none;
+  color:white;
+
+}
+.jax:hover{
+  color: yellow;
+}
+.hover{
+  pointer-events: auto;
+}
+.topnav{
+  padding-left: 20px;
+  border: solid black 1px;
+  border-left: none;
+  position: sticky;
+}
+
+.sidenav{
+  border: solid black 1px;
+}
+
+.row{
+padding-left: 10px;
+}
+
+.column{
+  height: 50%;
+  display: inline-table;
+  width: 15%;
+  padding-top: 20px;
+  padding-right: 0;
+  justify-content: space-around;
+}
+.card{
+  width: 200px;
+  height: 350px;
+  padding-left: 2px;
+
+  border: solid black 1px ;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  align-items: center;
+
+}
+.card:hover{
+  background-color: #cccccc;
+}
+.card-body{
+  padding-left: 5px;
+}
+
+.button{
+  margin: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+.button:hover{
+  background-color: lightslategray;
+  cursor: pointer;
+}
+.button product{
+  margin: 0 auto;
+  position: center;
+}
+
+.kosar{
+  border: solid black 1px;
+  width: 100%;
+  background-color: #efefef;
+}
+
+.ar{
+  font-size: 15px;
+}
+
+.modal-content{
+  width: 100%;
+}
+
+mat-ripple mat-button-ripple mat-button-ripple-round{
+  color: white;
+  background-color: white;
+}

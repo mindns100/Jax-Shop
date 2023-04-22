@@ -1,0 +1,59 @@
+<h1 style="text-align: center; font-weight: bold">Fiók</h1>
+<div *ngIf="currentUser" class="cart-item" style="text-align: center;">
+  <div class="list-group-item">
+    <p style="margin: 10px">Felhasználónév: <strong>{{ currentUser.displayName }}</strong> </p>
+    <p style="margin: 10px">Email: <strong>{{ currentUser.email }}</strong></p>
+  <p style="margin: 10px">Jelszó: ********* </p>
+  </div>
+
+  <button style="text-align: center" class="button" (click)="open(content)">SZERKESZTÉS</button>
+</div>
+
+<h1 style="text-align: center; font-weight: bold">Rendelési előzmények</h1>
+<h2 *ngIf="orders.length === 0" style="padding: 1%; text-align: center;">Még nincsenek vásárlási előzményeid.</h2>
+<div *ngIf="orders.length > 0" style="padding: 1%; border-bottom: 1px black solid;">
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Rendelési kód</th>
+      <th>Összeg</th>
+      <th>Dátum</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{ order.orderId }}</td>
+      <td>{{ order.totalPrice }}</td>
+      <td>{{ order.createdAt }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title" id="modal-basic-title" style="text-align: center">Fiók Szerkesztése</h2>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body" style="text-align: center" >
+    <form (submit)="updateAccount(); modal.dismiss('Update click');">
+      <label style="padding: 5px; margin: 5px" >
+        Új név:
+        <input type="text" name="name" [(ngModel)]="newUsername">
+      </label>
+      <br>
+      <label style="padding: 5px; margin: 5px" >
+        Új Email:
+        <input type="text" name="email" [(ngModel)]="newEmail">
+      </label>
+      <br>
+      <label style="padding: 5px; margin: 5px" >
+        Új jelszó:
+        <input type="password" name="password" [(ngModel)]="newEmailPassword">
+      </label>
+      <br>
+      <button type="submit" class="button">Fiók frissítése</button>
+    </form>
+  </div>
+</ng-template>

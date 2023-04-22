@@ -1,0 +1,145 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="filt" >Termékek
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item class="ff" routerLink="" (click)="getFilteredProducts()">Összes Termék</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('IT')">Számítástechnika</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('TV')">TV és szórakozás</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('phones')">Telefonok,Tabletek</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('laptop')">Laptopok</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('house')">Háztartási gépek</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('accessory')">Tartozékok</a>
+      <a mat-list-item class="ff" routerLink="" (click)="filterByCategory('other')">Egyéb</a>
+
+
+      <mat-toolbar class="filt">Szűrés</mat-toolbar>
+      <div class="filters" style="padding: 5px">
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="from">Minimum</label>
+              <input type="number" id="from" class="form-control">
+            </div>
+            <div class="form-group" style="padding-bottom: 20px">
+              <label for="to">Maximum</label>
+              <input type="number" id="to" class="form-control">
+            </div>
+            <a class="button" style="font-size: 20px; color: white; padding: 2px" routerLink="" (click)="filterByPriceRange()">Keresés</a>
+          </form>
+        </div>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #000000">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        style="color: white"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+
+      <span><a routerLink="/" class="jax" ><strong>JAX-SHOP</strong></a></span>
+
+
+      <!--<div class="kereso"><input type="text" placeholder="Keresés.."><button type="submit" class="searchbutton">
+        <mat-icon>search</mat-icon></button></div> -->
+      <!-- <a class="status" *ngIf="authService.currentUser$ | async as user">Státusz: Regisztrált vásárló</a> -->
+
+
+     </mat-toolbar>
+     <!-- Add Content Here -->
+    <div class="topnav" style="box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);">
+
+
+      <ng-container  *ngIf="authService.currentUser$ | async as user; else loginButton">
+        <a mat-list-item style="cursor:pointer;" class="center text-center" [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+          {{user.displayName}}
+          <mat-icon>expand_more</mat-icon>
+        </a>
+      </ng-container>
+      <a mat-list-item style="cursor:pointer;" class="center text-center" [matMenuTriggerFor]="elerMenu">☎ Elérhetőségek</a>
+
+      <a  routerLink="cart" style="cursor:pointer" class="center text-center">🛒Kosár:
+        <a style="cursor:pointer; color: red; font-weight: bold; font-size: 25px" class="center text-center">{{itemInCart}}</a></a>
+
+
+
+      <ng-container> <!-- *ngIf="authService.currentUser$ | async as user" -->
+        <a mat-list-item style="cursor:pointer;" class="center text-center" [matMenuTriggerFor]="favMenu">💖 Kedvencek</a>
+      </ng-container>
+      <ng-template #loginButton>
+        <a mat-list-item class="center text-center">👤 :Vendég</a>
+        <a mat-list-item routerLink="signup" class="center text-center">📄 Regisztráció</a>
+        <a mat-list-item routerLink="login" class="center text-center">⬆Bejelentkezés</a>
+      </ng-template>
+      <!--<a mat-list-item style="cursor:pointer;" class="center text-center" routerLink="/">💣AKCIÓK</a> -->
+      <a mat-list-item *ngIf="authService.getCurrentUserValue()?.uid === 'qD6xWisaUwb6GzV1XQsMxKflKps2'"
+         routerLink="admin" style="cursor:pointer;" class="center text-center">🛠Termék felvitel</a>
+
+        <div >
+        <form class="example ">
+          <input  class="" type="text" placeholder="Keresés.." name="searchText" id="searchText" [(ngModel)]="searchText" (keyup.enter)="filterByText()">
+          <button
+                  routerLink="" (click)="filterByText()"><mat-icon>search</mat-icon></button>
+        </form>
+        </div>
+
+    </div>
+
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-menu #userMenu="matMenu">
+  <button mat-menu-item routerLink="account">Fiók Adatok</button>
+  <button mat-menu-item routerLink="account">Rendelések</button>
+  <button mat-menu-item routerLink="cart">Kosarad</button>
+  <button mat-menu-item (click)="logout()">Kijelentkezés</button>
+</mat-menu>
+
+
+
+<mat-menu #favMenu="matMenu">
+  <a mat-menu-item *ngIf="favoritesService.items.length === 0">A listád üres.😢</a>
+  <a mat-menu-item *ngFor="let product of favoritesService.items" style="border-bottom: black solid 1px; font-size: 12px">
+    💖 <img [src]="product.imageUrl" alt="Termek" style="width:10%">  {{ product.name }}  -  {{product.price}} Ft
+    <button mat-icon-button (click)="favoritesService.removeFavorite(product)">
+      <mat-icon>close</mat-icon>
+    </button>
+  </a>
+</mat-menu>
+
+<mat-menu class="kosar" #kosMenu="matMenu">
+
+  <app-cart></app-cart>
+
+</mat-menu>
+
+<mat-menu  style="width: 100%; font-size: 30px; margin: 5px;" #elerMenu="matMenu">
+  <h3 style=" font-size: 20px; margin: 5px;"><strong>☎ Telefon :</strong><br> +36 30 540 1001</h3>
+  <h3 style=" font-size: 20px; margin: 5px;"><strong>✉ E-mail :</strong><br> jaxshop.official@gmail.com</h3>
+</mat-menu>
+
+<ng-template #content let-modal class="kosar-item">
+  <div class="modal-content">
+  <div class="modal-header">
+    <h1 class="modal-title" id="modal-basic-title">Kosár</h1>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container">
+      <app-cart></app-cart>
+    </div>
+  </div>
+    </div>
+</ng-template>
+

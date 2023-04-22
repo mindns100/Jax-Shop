@@ -1,0 +1,42 @@
+
+<div class="row" >
+<div class="column" *ngFor="let product of products  | async " >
+  <div class="card" >
+    <img [src]="product.imageUrl" alt="Termek" style="width:80%; cursor: pointer; border: 1px solid black; border-top: none" (click)="open(content)"><p>  </p>
+    <div class   ="container">
+      <h3 style="cursor: pointer" (click)="open(content)">{{product.name}}</h3>
+      <strong><p class="ar">{{product.price | currency: ' Ft '}}</p></strong>
+      <p style="text-align: center; align-items: center;"><button class="button product" (click)="addToCart(product)">🛒 Kosárba tétel </button>
+        <button class="button product" (click)="addToFavorites(product)">⭐ Kedvencekhez</button></p>
+    </div>
+  </div>
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-basic-title">Termék Leírás</h2>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="text-align: center; padding: 5%;">
+      <img [src]="product.imageUrl" alt="Termek" style="width:60%; justify-content: center;">
+
+      <div class="container" style="font-size: 18px;">
+        <h2>{{product.name}}</h2>
+
+        <p class="title" style="font-size: 15px">{{product.description}}</p>
+        <strong><p class="ar">{{product.price | currency: 'HUF '}}</p></strong>
+        <p>Kategória: {{product.category}}</p>
+
+      </div>
+      <p style="text-align: center; align-items: center;"><button class="button product" (click)="addToCart(product)">🛒 Kosárba tétel </button>
+        <button class="button product" (click)="addToFavorites(product)">⭐ Kedvencekhez</button></p>
+    </div>
+  </ng-template>
+
+</div>
+</div>
+
+
+
+

@@ -1,0 +1,90 @@
+
+<div class="contain">
+
+<div class="check1">
+  <h2>Rendelési Adatok</h2>
+<ul class="list-group-item" *ngFor="let item of items">
+  <img [src]="item.imageUrl" alt="Termek" style="width:10%">
+  <span> {{ item.name }}  -  {{item.qty}} db  -  <strong>{{ item.price * item.qty }} Ft</strong></span>
+
+
+</ul>
+  <tr><div *ngIf="items.length > 0 " style="font-size: 16px; padding: 20px; font-weight: bold">Szállítási költség: {{getShippingCost()}} Ft</div> </tr>
+<tr><div *ngIf="items.length > 0 " style="font-size: 20px; padding: 20px; font-weight: bold"> Végösszeg: {{ getTotalPrice() }}</div></tr>
+</div>
+
+<div class="check">
+  <h2>Szállítási Adatok</h2>
+
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="fullName">Teljes Név:</label>
+    <input type="text" id="fullName" formControlName="fullName" required>
+  </div>
+  <div>
+    <label for="phone">Telefonszám:</label>
+    <input type="text" id="phone" formControlName="phone" required>
+  </div>
+  <div>
+    <label for="email">Email-cím:</label>
+    <input type="text" id="email" formControlName="email"  required>
+  </div>
+  <div class="adat">
+    <label for="county" style="margin: 10px" >Vármegye:</label>
+    <select style="width: 100%; font-size: 16px;" id="county" formControlName="county" required>
+      <option value="Bács-Kiskun">Bács-Kiskun</option>
+      <option value="Baranya">Baranya</option>
+      <option value="Békés">Békés</option>
+      <option value="Borsod-Abaúj-Zemplén">Borsod-Abaúj-Zemplén</option>
+      <option value="Csongrád-Csanád">Csongrád-Csanád</option>
+      <option value="Fejér">Fejér</option>
+      <option value="Győr-Moson-Sopron">Győr-Moson-Sopron</option>
+      <option value="Hajdú-Bihar">Hajdú-Bihar</option>
+      <option value="Heves">Heves</option>
+      <option value="Jász-Nagykun-Szolnok">Jász-Nagykun-Szolnok</option>
+      <option value="Komárom-Esztergom">Komárom-Esztergom</option>
+      <option value="Nógrád">Nógrád</option>
+      <option value="Pest">Pest</option>
+      <option value="Somogy">Somogy</option>
+      <option value="Szabolcs-Szatmár-Bereg">Szabolcs-Szatmár-Bereg</option>
+      <option value="Tolna">Tolna</option>
+      <option value="Vas">Vas</option>
+      <option value="Veszprém">Veszprém</option>
+      <option value="Zala">Zala</option>
+    </select>
+    <br>
+    <label for="city">Település:</label>
+    <input type="text" id="city" formControlName="city" required>
+    <br>
+    <label for="zip">Irányítószám:</label>
+    <input type="text" id="zip" formControlName="zip" required>
+    <br>
+    <label for="street">Utca:</label>
+    <input type="text" id="street" formControlName="street"  required>
+    <br>
+    <label for="houseNumber">Házszám:</label>
+    <input type="text" id="houseNumber" formControlName="houseNumber" required>
+    <br>
+    <label for="extra">Lépcső/Emelet stb.:</label>
+    <input type="text" id="extra" formControlName="extra">
+    <br>
+
+  </div>
+  <div>
+    <label for="shippingOption" style="margin: 10px">Szállítási opciók</label>
+    <select style="width: 50%; font-size: 16px;" id="shippingOption" formControlName="shippingOption" required>
+      <option value="express" >GLS Futárszolgálat</option>
+      <option value="standard" >MPL Futárszolgálat</option>
+    </select>
+    <label style="border: none; box-shadow: none; text-align: center">
+      Elfogadom az <a href="">Általános Felhasználási Feltételeket</a>.
+      <input type="checkbox" name="agree" id="agree" style="border: none; box-shadow: none" required>
+    </label>
+    <a class="button" style="margin: 5px; background-color: black; color: white; padding: 5px;" type="submit"  (click)="createOrder(items,checkoutForm)">Rendelés véglegesítése</a>
+    <a class="button" style="margin: 5px; background-color: black; color: white; padding: 5px;" type="button"  onclick="window.location.href='/cart'">Vissza a kosárhoz</a>
+  </div>
+</form>
+</div>
+</div>

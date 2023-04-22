@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Rubik's Cube",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      "imageUrl": "https://www.popsci.com/uploads/2019/03/18/FKKPS6IJJQCML5WPHMBHF7GWYI.jpg?auto=webp",
+      "price": "5900"
+    },
+    {
+      "id": 2,
+      "name": "Rubik's Cube v2",
+      "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged",
+      "imageUrl": "https://media.gamestop.com/i/gamestop/10130552/Rubiks-Cube",
+      "price": "6900"
+    },
+    {
+      "id": 3,
+      "name": "Toy Truck",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+      "imageUrl": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/kids-toys-1660657606.jpg?crop=0.492xw:0.984xh;0.250xw,0&resize=640:*",
+      "price": "2900"
+    },
+    {
+      "id": 4,
+      "name": "Xiaomi Monitor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "imageUrl": "https://xiaomi-store.hu/14166-large_default/xiaomi-mi-desktop-monitor-27-.jpg",
+      "price": "49000"
+    },
+    {
+      "id": 5,
+      "name": "Gaming PC Pack",
+      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+      "imageUrl": "https://m.media-amazon.com/images/I/819XYUimTuL.jpg",
+      "price": "399000"
+    }
+  ]
+}

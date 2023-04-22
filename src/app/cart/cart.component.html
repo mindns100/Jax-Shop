@@ -1,0 +1,32 @@
+<div *ngIf="items.length === 0" class="alert alert-info" style="text-align: center"><h2>A kosarad üres 🙁</h2></div>
+<div style="padding-bottom: 20px"></div>
+<h1 *ngIf="items.length > 0 " style="text-align: center">🛒 Kosár</h1>
+<div *ngIf="items.length > 0 " class="cart-item">
+<ul class="list-group-item" *ngFor="let item of items">
+  <img [src]="item.imageUrl" alt="Termek" style="width:10%">
+  <span> {{ item.name }}  -  {{item.qty}} db  -  <strong>{{ item.price * item.qty }} Ft</strong></span>
+
+  <div class="plus">
+  <button mat-icon-button (click)="incrementItem(item)">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-icon-button (click)="decrementItem(item)">
+    <mat-icon>remove</mat-icon>
+  </button>
+  <button mat-icon-button (click)="removeItem(item)">
+    <mat-icon>delete</mat-icon>
+  </button>
+  </div>
+</ul>
+  <tr><div *ngIf="items.length > 0 " style="font-size: 18px; padding: 20px; float: right"> Végösszeg: {{ getTotalPrice() }}</div></tr>
+  <a *ngIf="authService.currentUser$ | async as user;  else notLoggedIn">
+  <button *ngIf="items.length > 0 " routerLink="checkout" class="button product">Tovább a pénztárhoz</button></a>
+
+  <ng-template #notLoggedIn>
+    <button *ngIf="items.length > 0 "  (click)="redirectToLogin()" class="button product" style="background-color:cornflowerblue;">Vásárlás Bejelentkezéssel</button>
+    <button *ngIf="items.length > 0 "  routerLink="checkout" class="button product" style="background-color: #000000;" >Vásárlás Vendégként</button>
+  </ng-template>
+  <button *ngIf="items.length > 0 "class="button product" style="background-color: red; float: right;"
+  (click)="clearCart()">Kosár kiürítése</button>
+
+</div>

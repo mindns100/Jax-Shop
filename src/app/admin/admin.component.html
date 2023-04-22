@@ -1,0 +1,91 @@
+<h1 style="text-align: center; font-weight: bold">Termék Felvitel</h1>
+<div  style="margin-bottom: 20px; background-color: white;">
+<form (submit)="onSubmit()">
+  <label>
+    Termék neve:
+    <input type="text" [(ngModel)]="productName" name="name" required>
+  </label>
+  <label>
+    Leírás:
+    <textarea [(ngModel)]="description" name="description" required></textarea>
+  </label>
+  <label>
+    Ár:
+    <input type="number" [(ngModel)]="price" name="price" required>
+  </label>
+  <label>
+    Kép URL:
+    <input type="text" [(ngModel)]="imageUrl" name="imageUrl">
+  </label>
+
+  <label for="category">
+    Kategória:
+  </label>
+  <select style="width: 100%; font-size: 20px;" type="text" id="category"  name="category" [(ngModel)]="category" required>
+    <option value="IT">IT</option>
+    <option value="other">other</option>
+    <option value="TV">TV</option>
+    <option value="phones">phones</option>
+    <option value="laptop">laptop</option>
+    <option value="house">house</option>
+    <option value="accessory">accessory</option>
+  </select>
+  <button type="submit" class="button">Termék feltöltése</button>
+</form>
+</div>
+<h1 style="text-align: center; font-weight: bold">Termékek Szerkesztése</h1>
+<div class="cart-item">
+
+  <div class="list-group-item"  *ngFor="let product of products  | async ">
+    <img [src]="product.imageUrl" alt="Termek" style="width:5%">
+    <span style="font-size: 15px"> {{ product.name }}</span>
+    <button style="float: right; " class="button" (click)="deleteProduct(product)">TÖRLÉS</button>
+    <button style="float: right; " class="button" (click)="open(content)">SZERKESZTÉS</button>
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h1 class="modal-title" id="modal-basic-title" style="max-width: 60%; text-align: center">Termék Leírás</h1>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body" style="text-align: center" >
+      <img [src]="product.imageUrl" alt="Termek" style="width:20%; justify-content: center;">
+      <form (ngSubmit)="onSubmit2(product)">
+        <label>
+          Név:
+          <input type="text" name="name" [(ngModel)]="product.name">
+        </label>
+        <br>
+        <label>
+          Leírás:
+          <textarea name="description" [(ngModel)]="product.description"></textarea>
+        </label>
+        <br>
+        <label>
+          Ár:
+          <input type="number" name="price" [(ngModel)]="product.price">
+        </label>
+        <br>
+        <label>
+          Kép URL:
+          <input type="text" name="imageUrl" [(ngModel)]="product.imageUrl">
+        </label>
+        <br>
+        <label>
+          Kategória:
+          <input type="text" [(ngModel)]="product.category" name="category" >
+        </label>
+        <br>
+        <label>
+          db:
+          <input type="number" name="qty" [(ngModel)]="product.qty">
+        </label>
+        <br>
+        <button type="submit" class="button">Termék Frissítése</button>
+      </form>
+    </div>
+  </ng-template>
+  </div>
+</div>
+
+
