@@ -9,7 +9,7 @@ export class Product {
   qty: number;
 
   constructor(id, name, name_lowercase, description = "Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-              price = 0, imageUrl ="assets/1.webp", category = "other",qty=1) {
+              price = 0, imageUrl ="", category = "other",qty=1) {
 
     this.id = id
     this.name = name
