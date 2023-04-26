@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../models/product";
 import {BehaviorSubject} from "rxjs";
-import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import {AuthenticationService} from "./authentication.service";
 

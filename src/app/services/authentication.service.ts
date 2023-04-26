@@ -6,7 +6,7 @@ import {
   signInWithEmailAndPassword,
   updateProfile
 } from "@angular/fire/auth";
-import {from, switchMap, tap, throwError} from "rxjs";
+import {from, switchMap} from "rxjs";
 import {map} from "rxjs/operators";
 
 

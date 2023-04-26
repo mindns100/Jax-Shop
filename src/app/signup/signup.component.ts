@@ -4,14 +4,12 @@ import {
   FormControl,
   FormGroup,
   ValidationErrors,
-  Validator,
   ValidatorFn,
   Validators
 } from "@angular/forms";
 import {AuthenticationService} from "../services/authentication.service";
 import {HotToastService} from "@ngneat/hot-toast";
 import {Router} from "@angular/router";
-import {MatDialogModule,MatDialog} from "@angular/material/dialog";
 
 export  function passwordMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

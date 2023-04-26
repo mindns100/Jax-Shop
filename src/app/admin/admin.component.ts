@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService} from "../services/product.service";
 import { Product } from '../models/product';
 import {Observable} from "rxjs";
-import {ProductListComponent} from "../product-list/product-list.component";
 import {AuthenticationService} from "../services/authentication.service";
 import {ModalDismissReasons, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {MatDialog} from "@angular/material/dialog";

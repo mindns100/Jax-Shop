@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable, Input, Output} from '@angular/core';
+import {Injectable} from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';

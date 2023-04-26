@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
 import {HotToastService} from "@ngneat/hot-toast";
-import {SignupComponent} from "../signup/signup.component";
 
 @Component({
   selector: 'app-login',

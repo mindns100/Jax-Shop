@@ -1,8 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {AuthenticationService} from "./services/authentication.service";
 import {Router} from "@angular/router";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {NavComponent} from "./nav/nav.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-root',

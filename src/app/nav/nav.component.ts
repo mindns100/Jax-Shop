@@ -5,12 +5,9 @@ import { map, shareReplay } from 'rxjs/operators';
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
 import {CartService} from "../services/cart.service";
-import {CartComponent} from "../cart/cart.component";
-import {NgbModal, NgbModalConfig,ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
-import {ProductListComponent} from "../product-list/product-list.component";
+import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
-import {NgForm} from "@angular/forms";
 import {FavoritesService} from "../services/favorites.service";
 
 

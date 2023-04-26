@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../services/authentication.service";
-import { User } from 'firebase/auth'; // import the User interface from firebase/auth
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { User } from 'firebase/auth';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { EmailAuthProvider, reauthenticateWithCredential, updateEmail, updateProfile } from 'firebase/auth';
-import { from } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import firebase from "firebase/compat/app";
 
 

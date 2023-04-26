@@ -1,16 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import {ProductService} from "../services/product.service";
 import {Product} from "../models/product";
-import {BehaviorSubject, Observable} from "rxjs";
+import {Observable} from "rxjs";
 import {FormControl, FormGroup} from "@angular/forms";
 import {AuthenticationService} from "../services/authentication.service";
 import {CartService} from "../services/cart.service";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {AppComponent} from "../app.component";
-import {NgbModal, NgbModalConfig,ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
+import {MatDialog} from "@angular/material/dialog";
+import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
 import {ActivatedRoute} from "@angular/router";
-import {CartComponent} from "../cart/cart.component";
-import {map} from "rxjs/operators";
 import {NavComponent} from "../nav/nav.component";
 import {FavoritesService} from "../services/favorites.service";
 

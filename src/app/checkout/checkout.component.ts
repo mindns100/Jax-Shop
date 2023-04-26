@@ -5,9 +5,7 @@ import {AuthenticationService} from "../services/authentication.service";
 import {CartComponent} from "../cart/cart.component";
 import {CartService} from "../services/cart.service";
 import {Product} from "../models/product";
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import firebase from "firebase/compat/app";
-import {Orders} from "../models/orders";
 import { User } from 'firebase/auth';
 
 @Component({

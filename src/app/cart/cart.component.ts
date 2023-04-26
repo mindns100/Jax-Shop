@@ -1,13 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { MessengerService } from 'src/app/services/messenger.service'
 import { Product } from 'src/app/models/product'
-import {filter, Subject, take} from 'rxjs'
-import {AngularFirestore} from "@angular/fire/compat/firestore";
-import {Observable} from "rxjs";
-import {map} from "rxjs/operators";
 import {CartService} from "../services/cart.service";
-import {ProductService} from "../services/product.service";
-import {NavComponent} from "../nav/nav.component";
 import {AuthenticationService} from "../services/authentication.service";
 import {Router} from "@angular/router";
 
